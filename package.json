@@ -2,9 +2,10 @@
     "name": "reactjs-tooltip",
     "version": "1.0.0",
     "description": "An easy to implement and  lightweight hover tooltip for your React components ",
-    "main": "index.js",
+    "main": "build/index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "webpack --watch",
+        "build": "webpack"
     },
     "repository": {
         "type": "git",
@@ -13,10 +14,6 @@
     "peerDependencies": {
         "react": "^16.4.0"
     },
-    "scripts": {
-        "start": "webpack --watch",
-        "build": "webpack"
-    },
     "keywords": [
         "react",
         "react-component",
@@ -24,7 +21,7 @@
         "react-tooltip",
         "hover"
     ],
-    "author": "Josh Alling",
+    "author": "joshalling",
     "license": "ISC",
     "bugs": {
         "url": "https://github.com/joshalling/reactjs-tooltip/issues"
@@ -37,7 +34,8 @@
     "devDependencies": {
         "babel-cli": "^6.26.0",
         "babel-core": "^6.26.3",
-        "babel-loader": "^8.0.4",
+        "babel-loader": "^7.1.4",
+        "babel-plugin-transform-class-properties": "^6.24.1",
         "babel-plugin-transform-object-rest-spread": "^6.26.0",
         "babel-plugin-transform-react-jsx": "^6.24.1",
         "babel-preset-env": "^1.7.0",
