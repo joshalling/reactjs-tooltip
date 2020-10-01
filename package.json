@@ -1,44 +1,40 @@
 {
-    "name": "reactjs-tooltip",
-    "version": "1.0.0",
-    "description": "An easy to implement and  lightweight hover tooltip for your React components ",
-    "main": "build/index.js",
-    "scripts": {
-        "start": "webpack --watch",
-        "build": "webpack"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/joshalling/reactjs-tooltip.git"
-    },
-    "peerDependencies": {
-        "react": "^16.4.0"
-    },
-    "keywords": [
-        "react",
-        "react-component",
-        "tooltip",
-        "react-tooltip",
-        "hover"
-    ],
-    "author": "joshalling",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/joshalling/reactjs-tooltip/issues"
-    },
-    "homepage": "https://github.com/joshalling/reactjs-tooltip#readme",
-    "dependencies": {
-        "react": "^16.6.3",
-        "webpack": "^4.27.1"
-    },
-    "devDependencies": {
-        "babel-cli": "^6.26.0",
-        "babel-core": "^6.26.3",
-        "babel-loader": "^7.1.4",
-        "babel-plugin-transform-class-properties": "^6.24.1",
-        "babel-plugin-transform-object-rest-spread": "^6.26.0",
-        "babel-plugin-transform-react-jsx": "^6.24.1",
-        "babel-preset-env": "^1.7.0",
-        "webpack-cli": "^3.1.2"
-    }
+  "name": "reactjs-tooltip",
+  "version": "1.0.0",
+  "description": "An easy to implement and  lightweight hover tooltip for your React components ",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "webpack --watch",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshalling/reactjs-tooltip.git"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "tooltip",
+    "react-tooltip",
+    "hover"
+  ],
+  "author": "joshalling",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshalling/reactjs-tooltip/issues"
+  },
+  "homepage": "https://github.com/joshalling/reactjs-tooltip#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
 }
