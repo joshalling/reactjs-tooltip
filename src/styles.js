@@ -14,34 +14,35 @@ export default {
     color: "#fff",
   },
   positioner: (contentEl, placement) => {
-    console.log(contentEl);
-    const content = contentEl.getBoundingClientRect();
-    switch (placement) {
-      case "top":
-        return {
-          bottom: "100%",
-          left: `calc(50% - ${content.width / 2}px)`,
-        };
-      case "right":
-        return {
-          top: `calc(50% - ${content.height / 2}px)`,
-          left: "100%",
-        };
-      case "bottom":
-        return {
-          top: "100%",
-          left: `calc(50% - ${content.width / 2}px)`,
-        };
-      case "left":
-        return {
-          top: `calc(50% - ${content.height / 2}px)`,
-          right: "100%",
-        };
-      default:
-        return {
-          top: "100%",
-          left: `calc(50% - ${content.width / 2}px)`,
-        };
+    if (contentEl) {
+      const content = contentEl.getBoundingClientRect();
+      switch (placement) {
+        case "top":
+          return {
+            bottom: "100%",
+            left: `calc(50% - ${content.width / 2}px)`,
+          };
+        case "right":
+          return {
+            top: `calc(50% - ${content.height / 2}px)`,
+            left: "100%",
+          };
+        case "bottom":
+          return {
+            top: "100%",
+            left: `calc(50% - ${content.width / 2}px)`,
+          };
+        case "left":
+          return {
+            top: `calc(50% - ${content.height / 2}px)`,
+            right: "100%",
+          };
+        default:
+          return {
+            top: "100%",
+            left: `calc(50% - ${content.width / 2}px)`,
+          };
+      }
     }
   },
 };
