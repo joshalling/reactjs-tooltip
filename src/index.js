@@ -1,57 +1,39 @@
 import PropTypes from "prop-types";
-import React, { Component } from "react";
+import React, { useRef, useState } from "react";
 import styles from "./styles";
 
-class Tooltip extends Component {
-  state = {
-    isOpen: false,
-    position: {},
-  };
+function Tooltip({ children, content, placement, style }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const contentRef = useRef();
 
-  _handleMouseIn = () => {
-    this.setState(() => ({ isOpen: true }));
-  };
+  const position = styles.positioner(contentRef.current, placement);
 
-  _handleMouseOut = () => {
-    this.setState(() => ({ isOpen: false }));
-  };
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.isOpen !== this.state.isOpen && this.state.isOpen === true) {
-      this.setState(() => ({
-        position: styles.positioner(this.contentRef, this.props.placement),
-      }));
-    }
-  }
-
-  render() {
-    return (
-      <span
-        style={{ ...styles.container, ...this.props.style }}
-        onMouseOver={this._handleMouseIn}
-        onMouseOut={this._handleMouseOut}
-      >
-        {this.props.children}
-        {this.state.isOpen && (
-          <div
-            style={{ ...styles.tooltip, ...this.state.position }}
-            ref={(ref) => (this.contentRef = ref)}
-          >
-            {this.props.content}
-          </div>
-        )}
-      </span>
-    );
-  }
+  return (
+    <span
+      style={{ ...styles.container, ...style }}
+      onMouseOver={() => setIsOpen(true)}
+      onMouseOut={() => setIsOpen(false)}
+    >
+      {children}
+      {isOpen && (
+        <div style={{ ...styles.tooltip, ...position }} ref={contentRef}>
+          {content}
+        </div>
+      )}
+    </span>
+  );
 }
 
 Tooltip.propTypes = {
+  children: PropTypes.node.isRequired,
   content: PropTypes.node.isRequired,
   placement: PropTypes.oneOf(["top", "right", "bottom", "left"]),
+  style: PropTypes.object,
 };
 
 Tooltip.defaultProps = {
   placement: "bottom",
+  style: {},
 };
 
 export default Tooltip;
