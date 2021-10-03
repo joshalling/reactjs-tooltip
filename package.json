@@ -1,6 +1,6 @@
 {
   "name": "reactjs-tooltip",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "An easy to implement and  lightweight hover tooltip for your React components ",
   "main": "build/index.js",
   "scripts": {
