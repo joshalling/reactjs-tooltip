@@ -1,15 +1,20 @@
 import Tooltip from './Tooltip';
+import { Meta, StoryObj } from '@storybook/react';
 
-export default {
+type Story = StoryObj<typeof Tooltip>;
+
+const meta = {
   title: 'Components/Tooltip',
   component: Tooltip,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-};
+} satisfies Meta<typeof Tooltip>;
 
-export const Default = {
+export default meta;
+
+export const Default: Story = {
   args: {
     children: 'Hover me.',
     content: 'This is a tooltip.',

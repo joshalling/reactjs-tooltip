@@ -1,23 +1,33 @@
 import PropTypes from 'prop-types';
-import React, { useRef, useState } from 'react';
-import styles from './styles';
+import { useState } from 'react';
+import styles, { positioner } from './styles';
 
-function Tooltip(props) {
+export type Placement = 'top' | 'right' | 'bottom' | 'left' | null;
+
+export interface TooltipProps {
+  children: React.ReactNode;
+  className?: string;
+  content: React.ReactNode;
+  placement?: Placement;
+  style?: React.CSSProperties;
+  tipClassName?: string;
+  tipStyle?: React.CSSProperties;
+}
+function Tooltip(props: TooltipProps) {
   const {
     children,
     className,
     content,
-    placement,
+    placement = 'top',
     style,
     tipClassName,
     tipStyle,
   } = props;
   const [isOpen, setIsOpen] = useState(false);
-  const [contentRef, setRef] = useState(null);
+  const [contentRef, setRef] = useState<HTMLElement | null>(null);
 
-  const position = styles.positioner(contentRef, placement);
-  console.log(position);
-  console.log(props);
+  const position = positioner(contentRef, placement);
+
   return (
     <span
       className={className}
@@ -43,7 +53,12 @@ Tooltip.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   content: PropTypes.node.isRequired,
-  placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+  placement: PropTypes.oneOf([
+    'top',
+    'right',
+    'bottom',
+    'left',
+  ]) as PropTypes.Validator<Placement>,
   style: PropTypes.object,
   tipClassName: PropTypes.string,
   tipStyle: PropTypes.object,
@@ -51,7 +66,7 @@ Tooltip.propTypes = {
 
 Tooltip.defaultProps = {
   className: '',
-  placement: 'top',
+  placement: 'top' as Placement,
   style: {},
   tipClassName: '',
   tipStyle: {},
