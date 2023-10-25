@@ -1,27 +1,25 @@
-var path = require("path");
+var path = require('path');
 module.exports = {
-  entry: "./src/index.js",
+  mode: 'production',
+  entry: './src/index.ts',
   output: {
-    path: path.resolve(__dirname, "build"),
-    filename: "index.js",
-    libraryTarget: "commonjs2",
+    path: path.resolve(__dirname, 'build'),
+    filename: 'index.js',
+    libraryTarget: 'commonjs2',
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
-        include: path.resolve(__dirname, "src"),
-        exclude: /(node_modules|build)/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            plugins: ["babel-plugin-transform-class-properties"],
-          },
-        },
+        test: /\.(js|jsx|ts|tsx)$/, // USE THE babel-loader FOR THESE FILE EXTENSIONS
+        include: path.resolve(__dirname, 'src'),
+        use: ['babel-loader'],
       },
     ],
   },
   externals: {
-    react: "commonjs react",
+    react: 'commonjs react',
   },
 };
