@@ -16,7 +16,7 @@ export default meta;
 
 export const Default: Story = {
   args: {
-    children: 'Hover me.',
+    children: 'Hover me!',
     content: 'This is a tooltip.',
   },
 };

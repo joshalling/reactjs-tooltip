@@ -3,7 +3,6 @@ import { Placement } from './Tooltip';
 export default {
   container: {
     position: 'relative',
-    padding: '4px',
     fontFamily: "'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif",
   } as React.CSSProperties,
   tooltip: {
@@ -11,7 +10,8 @@ export default {
     zIndex: 1,
     borderRadius: '3px',
     padding: '8px',
-    width: '250px',
+    width: 'max-content',
+    maxWidth: '250px',
     textAlign: 'left',
     backgroundColor: 'rgba(82, 82, 82, 0.95)',
     color: '#fff',
@@ -27,27 +27,27 @@ export function positioner(
     switch (placement) {
       case 'top':
         return {
-          bottom: '100%',
+          bottom: 'calc(100% + 4px)',
           left: `calc(50% - ${content.width / 2}px)`,
         };
       case 'right':
         return {
           top: `calc(50% - ${content.height / 2}px)`,
-          left: '100%',
+          left: 'calc(100% + 4px)',
         };
       case 'bottom':
         return {
-          top: '100%',
+          top: 'calc(100% + 4px)',
           left: `calc(50% - ${content.width / 2}px)`,
         };
       case 'left':
         return {
           top: `calc(50% - ${content.height / 2}px)`,
-          right: '100%',
+          right: 'calc(100% + 4px)',
         };
       default:
         return {
-          top: '100%',
+          top: 'calc(100% + 4px)',
           left: `calc(50% - ${content.width / 2}px)`,
         };
     }
