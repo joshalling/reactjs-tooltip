@@ -38,9 +38,9 @@ function Tooltip(props: TooltipProps) {
       {children}
       {isOpen && (
         <div
+          ref={setRef}
           className={tipClassName}
           style={{ ...styles.tooltip, ...position, ...tipStyle }}
-          ref={setRef}
         >
           {content}
         </div>
